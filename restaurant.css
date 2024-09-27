@@ -1,0 +1,272 @@
+
+
+/* PLEASE READ: */
+/* all things I new/ wasn't taught I tried to explain with comments */
+/* + normal comments so I/you know whats going on */
+/* all sizing, images, links, etc. I got directly from inspecting the website */
+
+
+
+/* global reset*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* include padding and border in the element's total width & height */
+}
+
+/* ensure the html & body take up the full viewport height */
+html, body 
+{
+    height: 100%;
+    margin: 0; 
+}
+
+/* styles for the body element */
+body 
+{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #333; 
+    color: #fff;
+    font-size: 16px; /*increase base font size */
+    line-height: 24px; /* increase line height*/
+}
+
+/* style for header section*/
+#showcase 
+{
+    min-height: 450px; /* min height for the header */
+    color: #fff;
+    text-align: center;
+    position: relative; 
+    display: flex; 
+    justify-content: center; /* center elements horizontally */
+    align-items: center; /* center elements vertically */
+    overflow: hidden;
+    width: 100%;
+    padding: 0;
+}
+
+
+/* style for background image inside header */
+#showcase .bg-img 
+{
+    position: absolute;
+    top: 0; /* align to top of header */
+    left: 0; /* align to left of header */
+    width: 100%;
+    height: 100%;
+    /* background image with no-repeat and centered */
+    background: url(https://static.pexels.com/photos/248515/pexels-photo-248515.png) no-repeat center center;
+    background-size: cover;
+    z-index: -1; /* place behind other content */
+    opacity: 0.4; /* opacity for the background image */
+}
+
+/* style for the welcome section within header */
+#showcase .welcome 
+{
+    position: relative;
+    z-index: 1; /* put it a layer above the background image */
+    padding: 0 24px; /* horizontal padding */
+    max-width: 90%; /* limit width to 90% */
+    text-align: center;
+}
+
+/* padding for content wrappers in header & section A */
+#showcase .content-wrap, #section-a .content-wrap 
+{
+    padding: 0 24px; /* horizontal padding */
+}
+
+/*"Responsive Layout for Larger Screens"*/
+/*"Media query" for screens 700px and wider (big screens including mine) */
+/*tbh, I dont understand this @media stuff well*/
+@media (min-width: 700px) 
+{
+    .content-wrap, #section-b ul 
+    {
+        grid-column: 2 / 4; /* span columns 2 to 4 in grid layout */
+    }
+
+    /* grid layout for large screens */
+    /* define the grid columns with flexible and fixed sizes */
+    .grid 
+    {
+        display: grid; /* use the grid layout */
+        /* define the grid columns with flexible and fixed sizes */
+        grid-template-columns: 1fr repeat(2, minmax(auto, 400px)) 1fr;     
+    }
+
+    /* arrange text in two columns */
+    #section-a .content-text 
+    {
+        /*I feel this is self explanitory, but...*/
+        columns: 2; /* two columns */
+        column-gap: 32px; /* gap between columns */
+    }
+
+    /* flexbox layout for section B          Flexbox: a way to arrange items in a container so they can adjust their size and position easily*/
+    /* distribute items evenly in section B */
+    #section-b ul 
+    {
+        display: flex; /* use flexbox */
+        justify-content: space-between; /* distribute the items evenly */
+    }
+
+    #section-b li 
+    {
+        flex: 1; /* 'flex' items to take equal space */
+        margin: 0 8px; /* margin between items */
+    }
+}
+
+/* styling for different heading levels */
+h1, h2, h3 
+{
+    margin: 0;
+    padding: 16px 0; /* vertical padding */
+}
+
+/* styling for specific heading levels */
+h1 
+{
+    font-size: 32px;
+    font-weight: bold;
+}
+
+h2 
+{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h3 
+{
+    font-size: 19px;
+    font-weight: bold;
+}
+
+/* paragraph styling */
+p 
+{
+    margin: 0;
+    padding: 16px;
+}
+
+/* button styling */
+.btn 
+{
+    display: inline-block; /* inline block layout */
+    background: #333;
+    color: #fff;
+    text-decoration: none; /* remove underline on text*/
+    padding: 16px 32px;
+    border: 1px solid #666;
+    margin: 8px 0;
+}
+
+/* section A styling */
+#section-a 
+{
+    background: #eaeaea;
+    color: #333;
+    padding-bottom: 32px;
+}
+
+/* section B styling */
+#section-b 
+{
+    padding: 32px 0; 
+    width: 100%; 
+}
+
+/* flexbox layout for section B              Flexbox: a way to arrange items in a container so they can adjust their size and position easily*/
+/* aka distribute items evenly and remove list styling */
+#section-b ul 
+{
+    display: flex; /* use the flexbox layout */
+    justify-content: space-between; /* distribute the items evenly */
+    list-style: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#section-b li 
+{
+    flex: 1; /* 'flexed' items to take equal space */
+    margin: 0 0.8px; /* the margin between items */
+    box-sizing: border-box; /* include padding and border in width + height */
+}
+
+/* the style for cards with a background & border */
+.card 
+{
+    display: flex;
+    flex-direction: column; /* stack elements vertically */
+    height: 100%;
+    background: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.card img 
+{
+    width: 100%; 
+    height: auto; /*keep the width and height of an element proportional to each other */
+}
+
+.card-content 
+{
+    padding: 16px;
+    flex: 1; /* take up available space */
+}
+
+.card-title 
+{
+    margin: 0 0 8px; /* put the margin below the title */
+}
+
+/* section C styling */
+#section-c 
+{
+    background: #fff;
+    color: #333;
+    padding: 32px;
+}
+
+/* "Media Query" for larger screens... again*/
+/* ensure elements span across two columns in the grid layout */
+@media(min-width: 700px) 
+{
+    .box, #main-footer div 
+    {
+        /*span 2 columns in grid layout */
+        grid-column: span 2; /*'span' refers to how many columns an item will cover.*/
+    }
+}
+
+/* the style for the first box in section D */
+#section-d .box:first-child 
+{
+    padding: 32px;
+    color: #fff;
+    background: #2690d4;
+}
+
+/* the style for the footer (padding & background color) */
+footer 
+{
+    padding: 32px; 
+    background: #000;
+    color: #fff;
+    text-align: center;
+}
+
+#main-footer 
+{
+    padding: 32px;
+    background: #000;
+    color: #fff;
+    text-align: center;
+}
